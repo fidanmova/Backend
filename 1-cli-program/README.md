@@ -7,10 +7,10 @@ A command-line interpreter or command-line processor uses a command-line interfa
 ## Contents
 - [Execute JavaScript outside the browser](#execute-javascript-outside-the-browser)
 - [Debugging](#Debugging)
-    - [1- In Visual Studio Code](#1-in-visual-studio-code)
-    - [2- Using log with colors](#2-using-log-with-colors)
+    - [1- In Visual Studio Code](#1-In-Visual-Studio-Code)
+    - [2- Using log with colors](#2-Using-log-with-colors)
     - [3- Measure Execution Time in Node Js](#3-measure-execution-time-in-node-js)
-- [Nodejs Args](#usage)
+- [Nodejs Args](#Nodejs-Args)
 - [Reading data from a Readable stream (CLI Inputs)](#ReadLine)
 
 
