@@ -17,7 +17,9 @@ function average(arr){
         let length = arr.length
         arr.forEach(item=>{
             let itemAsNumber = parseFloat(item)
-            if(!Number.isNaN(typeof itemAsNumber)){
+            // check if item after parsing is not NaN
+            // typeof NaN is "number" :( 
+            if(!Number.isNaN(itemAsNumber)){
                 //sum = sum + item;
                 sum += itemAsNumber
             }else{
@@ -25,7 +27,11 @@ function average(arr){
                 length --
             }
         })
-        return sum / length
+        if(length>0){
+            return sum / length
+        }else{
+            return 0 
+        }
     }else{
         console.log("Data type exception ")
         return 0
@@ -33,10 +39,16 @@ function average(arr){
 }
 
 // let myArray = [1, 2, 3, 4, 5, "Hi"]
-let myArray = process.argv.slice(2)
-let avr = average(myArray)
-console.log(avr)
-
 // process.argv
 // console.log(process.argv)
-console.log(process.argv.slice(2))
+// console.log(process.argv.slice(2))
+let myArray = process.argv.slice(2)
+// process.argv ===> string always
+let avr = average(myArray)
+console.log(avr)
+ /**
+  * Create another Function sum so that:
+  * node average.js sum 1 2 3 4 5 ===> 15 
+  * node average.js avr 1 2 3 4 5 ===> 3
+  * and let the user select which function need to be executed
+ */
