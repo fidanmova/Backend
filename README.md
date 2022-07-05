@@ -4,7 +4,8 @@ Here we will keep backend live code and slides
 ## Md Ariful Islam(senior Teacher- web dev)
 ## Mostafa Othman(senior web dev teacher)
 ## Vassilis Skrimpas(Assistant teacher)
+<hr>
 
-### topics to cover
-#### nodejs, Database(NOSQL), REST API
+## Content:
+## 1. [CLI Program in Nodejs](./1-cli-program/)
 
