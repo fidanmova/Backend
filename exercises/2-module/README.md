@@ -7,28 +7,11 @@
 ## Tasks
 - Task 01: create a folder called controller and then create modules files with any name you like
 - Task 02: 1st module should do these tasks: Read, create, Update/write, delete, rename a file and text data
-   * Hints: use fs build-in module
--  
+   * Hints: use fs build-in module and its method
+-  for each task display a message as "reading file or create file etc" in both console and browser
+- Task 03: create a module called today.js and show date of today by returning a function and display it with <h1> tag as "Today is 07 June 2022"
 
 
-```js
-const server = http.createServer((req, res)=>{
-    switch(req.url){
-        case '/':
-            res.writeHead(200, {'Content-Type': 'text/html'});
-            res.end('<h1>Home Page</h1>');
-            break;
-        case '/about':
-            res.writeHead(200, {'Content-Type': 'text/html'});
-            res.end('<h1>About Page</h1>');
-            break;
-        default:
-            res.writeHead(404, {'Content-Type': 'text/html'});
-            res.end('<h1>404 Page</h1>');
-            break;
-    }
-}).listen(3000);
-```
 ### In next topics, we will Middleware concept 
 
 
