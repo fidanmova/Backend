@@ -9,7 +9,14 @@ const myModule = require('./myModule')
 const PORT = 5000
 const myHost = "localhost"
 const server = http.createServer((request, response)=>{
-    response.write(fileSystem.fileRead()) 
+    response.writeHead(200, {
+        'Content-Type': 'text/html'
+    })
+    response.write(fileSystem.fileRead())
+    response.write(fileSystem.updateFile())
+    response.write(fileSystem.fileCreate())
+    response.write(fileSystem.fileCreateSync())
+    response.write(fileSystem.deleteFile())
     response.end('success')
     // READ a file
     //fs.readFile(path, callback(err, data))
