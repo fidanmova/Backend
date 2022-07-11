@@ -11,6 +11,8 @@ const loadView = path=>{
         })
     })
 }
+ 
+console.log("dirname for loadFile model",__dirname)
 
 const somthingElse = ()=>{
     return "something Else.."
