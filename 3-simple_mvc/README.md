@@ -43,6 +43,7 @@ After that we must add an entry point file in the current directory, this file i
 For now, the controller is the main file of the project, and the view is the file that will be displayed to the user, and the model is the file that will be used to store the data.
 <br>
 So that the structure of the project will be:
+
 ```
 ROOT_DIRECTORY_OF_PROJECT
 ├── models
