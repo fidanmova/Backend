@@ -115,7 +115,7 @@ In web development, the view is the page that is displayed to the user (browser)
 ## Nodejs Server with Front-End Files
 > The front-end files are required from browser to make a styling to the page, like css, or javascript, or images, or fonts, or any other file that is needed to be displayed to the user.
 <br>
-In our view file, it may contain a links or scripts like ```<link href="/some_cssFile.css">``` or ```<script src="some_js_file.js"></script>```, so the browser will make a new GET request asking for those files. then we have to make a handler in server side to send this files to the browser.
+In our view file, it may contain a links or scripts like ` <link href="/some_cssFile.css"> ` or ` <script src="some_js_file.js"></script>` , so the browser will make a new GET request asking for those files. then we have to make a handler in server side to send this files to the browser.
 <br>
 Simply we can read what the browser asking for by `req.url`, then according to the url, we can send the file to the browser.
 ```js
