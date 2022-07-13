@@ -1,0 +1,20 @@
+{
+  "name": "5.express_router_middleware",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server",
+    "server": "nodemon server"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "express": "*"
+  },
+  "keywords": [
+    "routes",
+    "middleware"
+  ],
+  "author": "arif",
+  "license": "ISC"
+}
