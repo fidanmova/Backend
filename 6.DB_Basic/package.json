@@ -1,0 +1,19 @@
+{
+  "name": "6.DB_basic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server",
+    "server": "nodemon server"
+  },
+  "dependencies": {
+    "express": "*"
+  },
+  "keywords": [
+    "routes",
+    "DB"
+  ],
+  "author": "arif",
+  "license": "ISC"
+}
