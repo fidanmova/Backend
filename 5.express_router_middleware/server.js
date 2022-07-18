@@ -10,8 +10,6 @@ app.use(express.json())
 
 //app.use(dateAndTime.login) // login middleware
 
-
-
 // a route: loalhost:5000
 // app.get(PATH, middleware...., Final-Callback)
 const {middleware1, middleware2, notMiddleware} = require('./middleware/test')

@@ -8,7 +8,8 @@
     "server": "nodemon server"
   },
   "dependencies": {
-    "express": "*"
+    "express": "*",
+    "mongoose": "^6.4.4"
   },
   "keywords": [
     "routes",
