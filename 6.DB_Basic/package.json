@@ -8,6 +8,7 @@
     "server": "nodemon server"
   },
   "dependencies": {
+    "dotenv": "^16.0.1",
     "express": "*",
     "mongoose": "^6.4.4"
   },
