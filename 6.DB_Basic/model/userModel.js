@@ -20,7 +20,11 @@ const Schema = mongoose.Schema
 const userSchema = new Schema({
     first_name: String,
     last_name: String,
-    age: Number
+    age: Number,
+    country: String,
+    gender: Boolean, 
+    address: String,
+    zipcode: Number
 })
 
 // Step 03: Declare the schema as a Model and export it
