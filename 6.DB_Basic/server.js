@@ -49,6 +49,11 @@ app.get('/user/:id', (req, res)=>{
 })
 
 // findOne({key:value}, callback(err, result))
+app.post('/user/getByCountry', (req, res)=>{
+    User.findOne({country: req.body.country, age: req.body.age}, (err, result)=>{
+        res.json(result)
+    })
+})
 
 // (U)Update: modify existing data
 app.post('/user/update/:id', (req, res)=>{
