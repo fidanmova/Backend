@@ -26,15 +26,16 @@ const userHandler = (req, res)=>{
     // basic idea to send data to be replaced in index.html file
 
     // reading index.html file
-    fs.readFile(path.join(__dirname, '../views/index.html'), (error, data)=>{
-        if(error){
-            res.send(error)
-        }else{
-            let htmlContent = data.toString()
-            htmlContent = htmlContent.replaceAll("@@", users[0].name)
-            res.send(htmlContent)
-        }
-    })
+    // fs.readFile(path.join(__dirname, '../views/index.html'), (error, data)=>{
+    //     if(error){
+    //         res.send(error)
+    //     }else{
+    //         let htmlContent = data.toString()
+    //         htmlContent = htmlContent.replaceAll("@@", users[0].name)
+    //         res.send(htmlContent)
+    //     }
+    // })
+    res.render('index', {title: "Users",persons: users, wisdom: "if nothing does right, go left", hot: true})
 }
 
 
