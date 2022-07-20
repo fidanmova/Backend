@@ -19,6 +19,8 @@ app.set('view engine', 'ejs')
 app.set('views', 'views')
 // 2- public folder (Front end files)
 app.use(express.static('public'))
+// make bootstrap folder in node_modules as public
+app.use('/bootstrap', express.static('node_modules/bootstrap'))
 // 3- use json url for post requests
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
@@ -28,6 +30,10 @@ app.use('/books', booksRouter)
 app.use('/authors', authorsRouter)
 // 6- main router "/" for homepage
 app.use('/', indexRouter)
+// 404 Page, all other requests, general case
+app.get('*', (req, res)=>{
+    res.render('mainTemplate', {title: 404, content: "404"})
+})
 
 
 app.listen(app.get('port'), ()=>{console.log('The server is running on port' + app.get('port'))})
