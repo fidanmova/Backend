@@ -2,7 +2,7 @@
 > This Project to store/brows books in our store
 
 ## Content
-- [Book Store](#book-store)
+  - [Book Store](#Book-Store)
   - [Content](#content)
   - [Project Structure](#project-structure)
   - [Project Routes](#project-routes)
@@ -27,18 +27,29 @@
 <hr>
 
 ## Project Routes
-- [books Routes](./routes/)
-- authors routes
-- home/index routes
+All routes located in [routes](./routes/) Folder.
+- [books Router](./routes/books.js)
+- [authors Router](./routes/authors.js)
+- [home/index routes](./routes/index.js)
 
 <hr>
 
 ## Project Controllers
-- [books Controller](./controllers/)
-- [author Controller]
+All controllers located in [controllers](./controllers/) Folder.
+- [books Controller](./controllers/bookscontroller.js)
+- [main Controller](./controllers/mainController.js)
 
 
 <hr>
 
 ## EJS View Engine
-- [Templating](./views/)
+All views files located in [views](./views/) Folder.
+- [mainTemplate](./views/mainTemplate.ejs)
+- [partials](./views/partials/) Folder.
+  - [navbar](./views/partials/navbar.ejs).
+- [content](./views/content/) Folder.
+  - [home](./views/content/home.ejs)
+  - [books](./views/content/books.ejs)
+  - [404](./views/content/404.ejs)
+
+<hr>
