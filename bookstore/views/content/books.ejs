@@ -1,1 +1,27 @@
-<h1 class="text-center">Books Content Page</h1>
+<h1 class="text-center">All Books</h1>
+<section>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- START RENDERING PART FOR EACH BOOK -->
+            <!-- THIS DIV: "row" below SHOULD BE EACH 3 BOOKS AND ALSO SHOULD BE FROM THE BEGINNING -->
+            <% books.forEach((book, index)=>{ %>
+                <% if(index % 3 ===0){ %>
+                    <% if(index !=0){ %>
+                    </div><!-- there must be previous openning row need to be closed -->
+                    <%}%>
+            <div class="row">
+                <%}%>
+            <!-- Example for one book -->
+                <div class="col-md-4 mb-3">
+                    <div class="card bg-dark">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= book.title%></h5>
+                            <p class="card-text"><%= book.description%></p>
+                        </div>
+                        <a href="/books/book/<%= book.id%>" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            <%})%>
+        </div>
+    </div>
+</section>

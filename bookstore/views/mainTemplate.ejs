@@ -11,10 +11,15 @@
 <body>
     <!-- importing navbar -->
     <!-- Navbar Start -->
-    <%- include('partials/navbar')%>
+    <header>
+          <%- include('partials/navbar')%>  
+    </header>
+
     <!-- Navar End -->
     <!-- Main Content Start -->
-    <%- include('content/' + content)%>
+    <main class="container">
+        <%- include('content/' + content)%>
+    </main>
     <!-- MAin Content End -->
     
 
