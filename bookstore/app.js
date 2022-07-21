@@ -32,7 +32,7 @@ app.use('/authors', authorsRouter)
 app.use('/', indexRouter)
 // 404 Page, all other requests, general case
 app.get('*', (req, res)=>{
-    res.render('mainTemplate', {title: 404, content: "404"})
+    res.status(404).render('mainTemplate', {title: 404, content: "404"})
 })
 
 

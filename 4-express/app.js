@@ -46,5 +46,15 @@ app.get("/r", (req, res)=>{
     // redirect to home
     res.redirect('/')
 })
+app.get("/k", (req,res)=>{
+    // console.log(req.params.h)
+    res.json(req.query)
+})
+// For all other Requests
+app.get("*", (req, res)=>{
+    res.status(404).send("Page Not Found")
+})
+
+
 
 app.listen(3000, ()=>console.log("Express server is running on port 3000"))

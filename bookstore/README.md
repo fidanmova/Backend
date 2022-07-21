@@ -14,14 +14,38 @@
 ```bash
 .
 ├── controllers
+│   ├── bookscontroller.js
+│   └── mainController.js
 ├── data
+│   ├── authors.json
+│   └── books.json
 ├── models
 ├── public
+│   ├── css
+│   │   └── style.css
+│   ├── images
+│   └── js
+│       └── script.js
 ├── routes
+│   ├── authors.js
+│   ├── books.js
+│   └── index.js
 ├── views
+│   ├── content
+│   │   ├── 404.ejs
+│   │   ├── book.ejs
+│   │   ├── books.ejs
+│   │   └── home.ejs
+│   ├── partials
+│   │   └── navbar.ejs
+│   └── mainTemplate.ejs
 ├── app.js
 ├── package.json
-└── README.md
+├── package-lock.json
+├── README.md
+├── TASKS.md
+└── test.js
+
 ```
 
 <hr>
