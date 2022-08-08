@@ -43,4 +43,24 @@ const getAllHandler = (req, res)=>{
 }
 
 
-module.exports = {indexHandler, postHandler, getAllHandler}
+const getUserHandler = (req, res)=>{
+    //req.params.userId
+    let user = users.find(u=> u.id == req.params.userId);
+    if(user){
+        res.json(user)
+    }else{
+        res.send("User not found")
+    }
+}
+
+const getUserHandlerQuery = (req, res)=>{
+    // req.query ===> {id: 0, name: mmm}
+    let user = users.find(u=> u.id == req.query.userId);
+    if(user){
+        res.json(user)
+    }else{
+        res.send("User not found")
+    }
+}
+
+module.exports = {indexHandler, postHandler, getAllHandler, getUserHandler, getUserHandlerQuery}
