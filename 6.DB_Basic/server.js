@@ -73,8 +73,6 @@ app.get('/user/delete/:id', (req, res)=>{
     })
 })
 
-
-
 app.listen(PORT, ()=>{
     console.log('Server is running on ' + PORT)
 })
