@@ -1,0 +1,21 @@
+{
+  "name": "7.DB_advance",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server",
+    "server": "nodemon server"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "*",
+    "mongoose": "^6.4.4"
+  },
+  "keywords": [
+    "routes",
+    "DB"
+  ],
+  "author": "arif",
+  "license": "ISC"
+}
