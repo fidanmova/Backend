@@ -21,7 +21,8 @@ const postHandler = (req, res)=>{
 
     //set an id to the new object
     let user = req.body
-    user.id = users[users.length - 1].id +1
+    // check if no users or empty file (empty database)
+    user.id = users.length > 0 ? users[users.length - 1].id + 1 : 0 
     users.push(user)
     // store in file
     fs.writeFile(path.join(__dirname, '../data/users.json'), JSON.stringify(users), error=>{
@@ -37,6 +38,9 @@ const postHandler = (req, res)=>{
     // res.send("POST Response Frome Server")
 }
 
+const getAllHandler = (req, res)=>{
+    res.json(users)
+}
 
 
-module.exports = {indexHandler, postHandler}
+module.exports = {indexHandler, postHandler, getAllHandler}
