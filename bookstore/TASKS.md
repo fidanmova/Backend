@@ -106,3 +106,19 @@ you can use `.forEach` or `for loop` to loop throw books object, dont forget to 
 9. Test: 
     - go to books route `localhost:3000/books` you should see all books
     - click on `Read More` button for one book, you should be redirect to this specific book page.
+
+<hr>
+
+## Add Book Route
+1. create addbook (ejs) file. see bootetrap 5 -> forms
+   - form for information :
+     - book title textbox.
+     - book prise textbox.
+     - book pages textbox.
+     - author: select.
+     - book description texterea.
+2. create a route addbook (get/post).
+3. for get method, render addbook, send also all authors as an object.
+4. for post: Store the new book to books.json file, increnet the id.
+5. if success: redirect to allbooks page.
+6. if error: show that error.
