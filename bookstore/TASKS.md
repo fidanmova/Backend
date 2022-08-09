@@ -117,7 +117,7 @@ you can use `.forEach` or `for loop` to loop throw books object, dont forget to 
      - book pages textbox.
      - author: select.
      - book description texterea.
-2. create a route addbook (get/post).
+2. create two route addbook (get/post).
 3. for get method, render addbook, send also all authors as an object.
 4. for post: Store the new book to books.json file, increnet the id.
 5. if success: redirect to allbooks page.
