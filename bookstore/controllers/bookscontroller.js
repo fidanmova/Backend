@@ -1,6 +1,7 @@
 const books = require('../data/books.json')[0].books
 const authors = require('../data/authors.json')
-
+const fs = require('fs')
+const path = require('path')
 const booksHandler = (req, res)=>{
     res.render('mainTemplate', {
         title: "Books",
@@ -38,10 +39,17 @@ const addBookPostHandler = (req, res)=>{
     book.author = authorName
     // ready to store
     books.push(book)
+    // to follow the same strucure books.json file
     let contentFile = [{books: books}]
     // now store this content to the file
-    
-    res.json(book)
+    fs.writeFile(path.join(__dirname, "../data/books.json"), JSON.stringify(contentFile), error=>{
+        if(error){
+            res.json(error)
+        }else{
+            res.redirect('/books')
+        }
+    })
+    //res.json(book)
 }
 
 
