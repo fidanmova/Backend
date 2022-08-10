@@ -93,3 +93,60 @@ db.COLLECTION.drop()
 db.dropDatabase()
 ```
 > ### Read more about Mongo shell commands in [official mongo documentation](https://docs.mongodb.com/manual/reference/mongo-shell/) site.
+
+<hr>
+
+# Advanced Commands
+# mongoCommands
+
+## Select With Operation Filters
+
+### use Operations:
+```sh
+# $or, $and, $not, $nor
+db.collection.find({$OPERATOR: [CONDITION_1, CONDITION_2, ..., CONDITION_N]})
+```
+
+## Update nested Object
+```sh
+db.collection.updateOne({FILTER}, {$set:{"field.field": "NEW_VALUE"}})
+```
+
+## Update Element in Array
+```sh
+db.collection.updateMany(
+    {skills:"Marketing"},
+    {$set:{"skills.$":"Public Speaking"}})# ONLY THE FIRST MATCHING ELEMENT!
+```
+
+##  Delete Array Element
+```sh
+db.collection.updateMany(
+    {},
+    {$pop:{"FIELD":1}}) // removes the last element
+
+db.collection.updateMany(
+    {},
+    {$pop:{"FIELD":-1}}) //removes the first element
+
+db.collection.updateMany( 
+    {}, 
+    {$pull: { "FIELD": "VALUE" }}) // removes "VALUE" "ALL MATCHING ELEMENTS"
+```
+
+## Delete multiple Elements from Array
+```sh
+db.collection.updateOne({FILTER}, {$pull:{FIELD:{$in: ["EMEMENT_1", "EMEMENT_2"]}}})
+```
+
+## Delete Multiple Elements from Array if Condition
+```sh
+db.collection.updateOne({FILTER}, {$pull:{FIELD:{$gte:6}}})#Delete if grater than 6
+db.collection.updateOne({FILTER}, {$pull:{FIELD:{$lte:6}}})#Delete if less   than 6
+```
+
+## Add Element to Array
+```sh
+db.updateOne({FILTER}, {$push{"ARRAY_FIELD": "NEW_ITEM"}})
+```
+
