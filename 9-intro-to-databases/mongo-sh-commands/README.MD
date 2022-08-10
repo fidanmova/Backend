@@ -141,7 +141,7 @@ db.collection.updateOne({FILTER}, {$pull:{FIELD:{$in: ["EMEMENT_1", "EMEMENT_2"]
 
 ## Delete Multiple Elements from Array if Condition
 ```sh
-db.collection.updateOne({FILTER}, {$pull:{FIELD:{$gte:6}}})#Delete if grater than 6
+db.collection.updateOne({FILTER}, {$pull:{FIELD:{$gte:6}}})#Delete if greater than 6
 db.collection.updateOne({FILTER}, {$pull:{FIELD:{$lte:6}}})#Delete if less   than 6
 ```
 
