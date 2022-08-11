@@ -2,6 +2,10 @@ const books = require('../data/books.json')[0].books
 const authors = require('../data/authors.json')
 const fs = require('fs')
 const path = require('path')
+const bookModel = require('../models/book')
+
+
+
 const booksHandler = (req, res)=>{
     res.render('mainTemplate', {
         title: "Books",
@@ -32,24 +36,29 @@ const addBookGetHandler = (req, res)=>{
 const addBookPostHandler = (req, res)=>{
     console.log(req.body)
     const book = req.body
-    // add an id to this new book
-    book.id = books.length>0? books[books.length - 1].id +1:0
-    //Search for the author, maching authorId
-    let authorName = authors.find(au=> au.id === book.authorId).name
-    book.author = authorName
-    // ready to store
-    books.push(book)
-    // to follow the same strucure books.json file
-    let contentFile = [{books: books}]
-    // now store this content to the file
-    fs.writeFile(path.join(__dirname, "../data/books.json"), JSON.stringify(contentFile), error=>{
-        if(error){
-            res.json(error)
-        }else{
-            res.redirect('/books')
-        }
+    bookModel.saveBook(book).then(()=>{
+        res.redirect('/books')
+    }).catch(er=>{
+        res.json(er)
     })
-    //res.json(book)
+    // // add an id to this new book
+    // book.id = books.length>0? books[books.length - 1].id +1:0
+    // //Search for the author, maching authorId
+    // let authorName = authors.find(au=> au.id === book.authorId).name
+    // book.author = authorName
+    // // ready to store
+    // books.push(book)
+    // // to follow the same strucure books.json file
+    // let contentFile = [{books: books}]
+    // // now store this content to the file
+    // fs.writeFile(path.join(__dirname, "../data/books.json"), JSON.stringify(contentFile), error=>{
+    //     if(error){
+    //         res.json(error)
+    //     }else{
+    //         res.redirect('/books')
+    //     }
+    // })
+    // //res.json(book)
 }
 
 
