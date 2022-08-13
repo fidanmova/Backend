@@ -24,7 +24,7 @@ const booksHandler = (_req, res)=>{
  * 
  * this procedure will handle the request (books/BOOKID) where BOOKID supposed to be an id (NUMBER) for the book requested from browser.
  * 
- * This procedure uses [book Model](../models/book.js) to load the function [findBookById](../models/book.js#findBookById) which will return the matched book as an object.
+ * This procedure uses [book Model](../models/book.js) to load the function [findBookById](../models/book.js) which will return the matched book as an object.
  * @author Mostafa Othman
  * @param {object} req Request
  * @param {object} res Response
@@ -41,7 +41,7 @@ const bookHandler = (req, res)=>{
 /**
  * ### addBookGetHandler
  * This procedure will handle the `GET` request (books/add).
- * This procedure will use [book Model](../models/book.js)
+ * This procedure will use [authors Model](../models/authors.js) to load the function [getAllAuthors](../models/authors.js) to send authors array with the response, to let the user select author when creating a new book.
  * This procedure will load the view [mainTemplate](../views/mainTemplate.ejs) with content [addBook](../views/content/addBook.ejs) to render the response, and send it back to the client.
  * @author Mostafa Othman
  * @param {object} _req 
@@ -64,7 +64,7 @@ const addBookGetHandler = (_req, res)=>{
  *  "description": "DESCRIPTION"
  * }
  * ```
- * This procedure will use [Book Model](../models/book.js) to load the `Promise Procedure` [saveBook](../models/book.js#saveBook)
+ * This procedure will use [Book Model](../models/book.js) to load the `Promise Procedure` [saveBook](../models/book.js)
  *  which will save the new book in datasource (file/database)
  * This Procedure will sind an object as a response to the breowser with this two cases:
  * ```json

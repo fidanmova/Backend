@@ -18,6 +18,7 @@
  ### addBookGetHandler
  * Type: Void.
  * This procedure will handle the `GET` request (books/add).
+ * This procedure will use [authors Model](../models/authors.js) to load the function [getAllAuthors](../models/authors.js) to send authors array with the response, to let the user select author when creating a new book.
  * This procedure will load the view [mainTemplate](../views/mainTemplate.ejs) with content [addBook](../views/content/addBook.ejs) to render the response, and send it back to the client.
 
  ### saveBook
@@ -38,11 +39,10 @@
  * This Procedure will sind an object as a response to the breowser with this two cases:
 ```json
  {
-  "error": null // in case book saved successfuly
+  "error": null /* in case book saved successfuly */
  }
- // or:
+ /* or: */
  {
-  "error": er, // he error from saveBook Promise
-  "errorNum": 2 // for error-map
+  "error": er, /* he error from saveBook Promise */
  }
 ```
