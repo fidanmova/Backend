@@ -48,11 +48,13 @@ const saveBook = (book) => {
 };
 
 /**
- *
+ * ### findBookById
+ * This Function will return a book as an object, this book is matching with `bookId` parameter which is comming from `GET` request as a param from browser.
  * @param {String} bookId
- * @returns book object if exist, or null
+ * @returns {object} book object if exist, or null if not.
  */
 const findBookById = (bookId) => {
+  // using .find method to look up the matching object in books array if the id and bookId are matching.
   return books.find((b) => b.id == bookId);
 };
 
