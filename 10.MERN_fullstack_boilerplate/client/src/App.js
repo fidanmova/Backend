@@ -13,7 +13,7 @@ function App() {
     console.log(username, email, password)
     const data = {username, email, password} 
     axios
-    .post('http://localhost:5000/user/create', data) // .post(URL, dataToSend)
+    .post('/user/create', data) // .post(URL, dataToSend)
     .then(response=> {
       console.log(response.data)
       setMessage(response.data)
