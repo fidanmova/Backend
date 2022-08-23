@@ -22,14 +22,46 @@ router.post('/user/create', (req, res)=>{
     })
 })
 
+// login a user
+router.post('/user/login', (req, res)=>{
+    //console.log(req.body)
+    /**
+     * Check wherether user is exist in database or not
+     */
+    /**
+     *  Model.findOne({
+        fieldNameFromDB: data to compare
+        })
+     * */ 
+    User.findOne({
+            email: req.body.email, 
+            password: req.body.password
+        })
+    .then(user=>{
+        //console.log(user)
+        // if there is a user or not null user
+        if(user!=null){
+            Product.find({added_by: user._id}).then(products=>{
+                res.json({
+                    user,
+                    message: 'Successfully login',
+                    products // array of object
+                })
+            })
+        }
+        else { //no user
+            res.json('wrong data! please give us correct email and password')
+        }
+    })
+})
+
 // get massive data from fakerjs for test
 const {faker} = require('@faker-js/faker')
 router.get('/user/add', (req, res)=>{
     const userData = {
         username: faker.internet.userName(),
         password: faker.internet.password(),
-        email: faker.internet.email()
-        
+        email: faker.internet.email() 
     }
     console.log(userData)
     new User(userData).save(()=>{
@@ -39,14 +71,15 @@ router.get('/user/add', (req, res)=>{
 })
 
 // Product routes to add or create product
-router.get('/product/add', (req, res)=>{
+router.get('/product/add/:userid', (req, res)=>{
+    const userId = req.params.userid
     const productData = {
         product_title: faker.commerce.product(),
         price: faker.commerce.price(),
         quantity: faker.datatype.number(),
         created_at: Date.now(),
         // how login can get user info or id?
-        added_by: '63034d533a41b7bf8a75a9ab' // after login or events
+        added_by: userId // after login or events
     }
     new Product(productData).save(()=>{
         res.json('1 product has been added')
@@ -66,5 +99,25 @@ router.get('/productByUser/:productId', (req, res)=>{
     })
 })
 
+/**
+ * task 1: display all products from database
+ * result: 7 products
+ */
+router.get('/product/all', (req, res)=>{
+    Product.find().then(result=>{
+        res.json(result)
+    })
+})
+
+/**
+ * task 2: display all products from database but for specific user
+ * result: 3 products
+ */
+router.get('/product/all/:user', (req, res)=>{
+    const user = req.params.user;
+    Product.find({added_by: user}).then(result=>{
+        res.json(result)
+    })
+})
 
 module.exports = router;
