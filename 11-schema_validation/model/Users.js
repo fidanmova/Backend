@@ -17,7 +17,12 @@ const UsersSchema = mongoose.Schema(
     },
     /**
      * with validation:
-     * FIELD_NAME: {type: TYPE, STUFF1: [validate, 'ERROR_MESSAGE']}
+     * FIELD_NAME: {type: TYPE, VALIDATOR1: [validate: (val)=>{
+     *  return TRUE/FALSE
+     * 
+     * }, 'ERROR_MESSAGE'], VALIDATOR2, ...., VALIDATOR_N
+     * 
+     * }
      *
      */
     married: { type: Boolean, default: false },
