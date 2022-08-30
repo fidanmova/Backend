@@ -24,6 +24,29 @@ let u = new User({
         "Reading"
     ]
 })
-u.save(error=>{
-    error?console.log(error.message): console.log("Insert Done!")
+// u.save(error=>{
+//     error?console.log(error.message): console.log("Insert Done!")
+// })
+
+// User.find({}).then(data=>{
+//     console.log(data)
+// }).catch(error=>{
+//     console.log(error)
+// })
+
+User.updateOne({email: "abcasasdasas@abc.abc"}, {$set:{age: 600}},{
+    runValidators: true
+}).then(result=>{
+    console.log(result)
+}).catch(error=>{
+    console.log(error.message)
 })
+
+// User.findOneAndUpdate({_id: "630cc5a9b8e128eca57d3e86"}, {$set:{'address.city': "Berlin"}}, {
+//     runValidators: true
+// }).then(result=>{
+//         console.log(result)
+//     }).catch(error=>{
+//         console.log(error)
+//     })
+
