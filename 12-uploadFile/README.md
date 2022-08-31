@@ -115,12 +115,12 @@
         router.post('/upload', (req, res)=>{
             // we do care in this case about "mimetype" attribute in file object,   
             // check ig the first part (mimetype: 'image/png') in mimetype is an image:
-            if(req.files.mySweetFile.mimtype.split('/')[0] == 'image'){
+            if(req.files.mySweetFile.mimetype.split('/')[0] == 'image'){
                 // STORE HERE ..
             }
             // we can check also if the specific file extension is allowed, then we split the value of mimetype with "/", taking the second part, if png or jpg or ...
             // example if only PDF:
-            if(req.files.mySweetFile.mimtype.split('/')[1] == 'pdf'){
+            if(req.files.mySweetFile.mimetype.split('/')[1] == 'pdf'){
                 // STORE HERE ..
             }
         })
