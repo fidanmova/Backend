@@ -9,7 +9,12 @@ const userSchema = new Schema({
   },
   password: String,
   avatar: String,
-  created_at: Date
+  created_at: Date,
+  // role: String
+  role: {
+    type: String,
+    enum: ['admin', 'student', 'teacher'] 
+  }
 });
 
 const User = mongoose.model('User', userSchema);

@@ -5,12 +5,12 @@ const User = require('../models/User')
 const { faker } = require('@faker-js/faker') //e5
 const bcrypt = require('bcrypt');
 const loginCheck = require('../config/loginCheck')
+const jwt = require('jsonwebtoken')
 
 // (C)create a new user
 // Task: If this email is there send a message
 // "This email already have an account. Please try another email"
 router.get('/create', (req, res)=>{
-
     // get user new data
     const newUser = {
         username: faker.name.fullName(),
@@ -18,11 +18,13 @@ router.get('/create', (req, res)=>{
         //password: faker.internet.password(),
         password: '1234', 
         avatar: faker.internet.avatar(),
-        created_at: Date.now()
+        created_at: Date.now(),
+        role: 'admin'
     }
 
     // encryption user password 
     const saltRound = 10
+    // bcrypt.hash(data, saltnumber, callback)
     bcrypt.hash(newUser.password, saltRound, (err, hashPassword)=>{
         newUser.password = hashPassword // replace password with hashPassword
         new User(newUser).save(()=>{
@@ -50,12 +52,18 @@ router.post('/login', (req, res)=>{
                 if(isLogin) { // true
                     // Store/save user inside session for 1 day
                     //request.session.SessionVariable = value
-                    req.session.user = result
+
+                    const token = jwt.sign({result}, 'i have secret info', {
+                        algorithm:'HS256',
+                        expiresIn: '1h' //token session
+                    })
+                    req.session.token = token
                     console.log(req.sessionID)
                     req.session.save()
                     res.json({
                         success_message: 'Successful login',
-                        result
+                        token,
+                        //result
                     })
                 }
                 else{
@@ -69,11 +77,31 @@ router.post('/login', (req, res)=>{
      })
 })
 
+// login by JWT 
+router.post('/login/jwt', (req, res)=>{
+    //const user = {email: 'arif@gmail.com', password: '1213'} 
+    const user = req.body;
+    // jwt.sign(data, secret/private key)
+    const token = jwt.sign(user, 'i have secret info', {
+        algorithm:'HS256',
+        expiresIn: '1h' //token session
+    })
+    res.json(token)
+})
+
+// Profile page after login with token 
+router.post('/profile/jwt', loginCheck.checkToken,(req, res)=>{
+    res.json({
+        msg: 'Your Profile page',
+        user: req.user
+    })
+})
+
 // Profile page after login
 router.get('/profile', loginCheck.isLogin,(req, res)=>{
     res.json({
         msg: 'Your Profile page',
-        user: req.session.user
+        user: req.session.user,
     })
 })
 
