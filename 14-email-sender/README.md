@@ -122,7 +122,8 @@ Then, create a procedure `send`, we can deploy this procedure, to accept argumen
         })
     })
 ```
-
+## message templating:
+see [This](https://community.nodemailer.com/2-0-0-beta/templating/) Example.
 
 
 
