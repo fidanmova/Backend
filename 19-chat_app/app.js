@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // for bootstrap
 app.use('/bootstrap', express.static(path.join(__dirname, 'node_modules/bootstrap')))
 app.use('/', indexRouter);
-app.use('/users', chatRouter);
+app.use('/chat', chatRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

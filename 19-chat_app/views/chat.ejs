@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/socket.io/socket.io.min.js"></script>
+  </head>
+  <body class="bg-dark" style="height: 100vh">
+    <div class="container border">
+        <div class="row" style="height: 80vh;">
+            <div id="messages" style="height: 80vh;" class="border p-2 col-md-12 overflow-auto text-white mb-3">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                    <input type="text" id="message" class="form-control" placeholder="Type message">
+            </div>
+            <div class="col-md-4" >
+                <input type="submit" onclick="send(event)" class="form-control" value="Send">
+            </div>
+        </div>
+    </div>
+
+
+  </body>
+</html>
