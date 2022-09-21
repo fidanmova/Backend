@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- importing socket.io client -->
+    <script src="/socket.io/socket.io.min.js"></script>
+  </head>
+  <body>
+    <h1>Random Access Memory Usage</h1>
+    <h3 id="free"></h3>
+    <h3 id="used"></h3>
+    <progress id="prog" min="0" max="100" value="10" style="width: 100%"></progress>
+
+    <script>
+      // establish ws connection with ws server
+      const socket = io();
+
+      // listener for incoming data
+      socket.on('memData', data=>{
+        document.getElementById('free').innerText = "Free Memory: "+data.freeUsage + " %";
+        document.getElementById('used').innerText = "Used Memory: "+ data.usedUsage + " %";
+        document.getElementById('prog').value = data.usedUsage
+      })
+    </script>
+  </body>
+</html>

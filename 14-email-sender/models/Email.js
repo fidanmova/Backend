@@ -3,12 +3,20 @@ const nodemailer = require('nodemailer')
 const transporter = nodemailer.createTransport({
     // host: "smtp.mail.yahoo.com",
     // port: 465,
-    service: 'yahoo',
+    service: 'gmail',
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASSWORD
     }
   })
+// const transporter = nodemailer.createTransport({
+//   host: 'smtp.ethereal.email',
+//   port: 587,
+//   auth: {
+//       user: 'francis10@ethereal.email',
+//       pass: 'Ndjp6aZQnvGDQa6PZ7'
+//   }
+// });
 
   /**
    * This function will send the email.

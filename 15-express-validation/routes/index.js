@@ -21,7 +21,7 @@ router.get('/signin', (req, res)=>{
 })
 
 router.get("/signout", (req, res)=>{
-  req.session.destroy()
+  req.session.destroy()// clear session
   res.redirect('/')
 })
 
