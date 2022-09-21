@@ -94,6 +94,8 @@ Socket.IO primarily uses the WebSocket protocol with polling as a fallback optio
 
     </script>
 ```
+## Security
+> Always make sure not to open socket connection for any client, make sure that the client logined firs, you can use [express session](https://socket.io/how-to/use-with-express-session) to secure the connection.
 ## Resourses
-> Read the [official documentation]https://socket.io/docs/v4/) site for Socket.io.
+> Read the [official documentation](https://socket.io/docs/v4/) site for Socket.io.
 
