@@ -45,3 +45,31 @@ app.use(function(err, req, res, next) {
 const server = app.listen(app.get('port'), ()=>log(`The Chat App ready on port: ${app.get('port')}`))
 // ws server init:
 const io = require('socket.io')(server)
+
+let users = []
+
+io.on('connection', socket=>{
+  log('A new User is Connected')
+  log(socket.handshake.query.nickName)
+  users.push(socket.handshake.query.nickName)
+  // each new user has a room:
+  socket.join(socket.handshake.query.nickName)
+
+  // listener for incoming message
+  socket.on("userMessage", messageInfo=>{
+    log(messageInfo)
+    // proadcast to all connected clients include the sender
+    io.emit("messageFromServer", messageInfo)
+    // socket.broadcast.emit(...)==> broadcast the message to all clients EXEPT the sender
+  })
+
+  // to specific user send
+  socket.on("spscificUser", messageInfo=>{
+    log(messageInfo)
+    // send only to specific user
+    socket.to(messageInfo.to).emit('messageFromServer', messageInfo)
+  })
+
+  io.emit('newUser', socket.handshake.query.nickName)
+
+})
