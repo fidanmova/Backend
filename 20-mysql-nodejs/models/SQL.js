@@ -48,10 +48,11 @@ function connect(){
 function sendQuery(query){
     return new Promise((resolve, reject)=>{
         connect().then(()=>{
-            con.query(query, (err, result)=>{
+            con.query(query, (err, result, field)=>{
                 if(err){
                     reject(err)
                 }else{
+                    console.log("field===>",field)
                     resolve(result)
                 }
             })
